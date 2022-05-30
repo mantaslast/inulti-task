@@ -2,7 +2,7 @@
   <div>
     <app-header />
     <section>
-      <router-link to="checkout">
+      <router-link :to="{ name: 'checkout' }">
         Checkout
       </router-link>
       <router-view />

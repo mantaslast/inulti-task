@@ -1,13 +1,12 @@
 <template>
   <form
+    class="checkout__form"
     name="checkoutForm"
     action="#"
     @submit="submitForm"
   >
-    <input type="text">
-    <button type="submit">
-      Submit
-    </button>
+    <input type="text" />
+    <button type="submit">Submit</button>
   </form>
 </template>
 

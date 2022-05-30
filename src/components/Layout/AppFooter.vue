@@ -1,7 +1,7 @@
 <template functional>
   <footer>
     <nav>
-      <ul>
+      <ul class="flex">
         <li>About Us</li>
         <li>Privacy Policy</li>
         <li>Terms Of Use</li>
