@@ -1,11 +1,17 @@
 <template>
-  <form name="checkoutForm" action="#" @submit="submitForm">
-    <input type="text" />
-    <button type="submit">Submit</button>
+  <form
+    name="checkoutForm"
+    action="#"
+    @submit="submitForm"
+  >
+    <input type="text">
+    <button type="submit">
+      Submit
+    </button>
   </form>
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
 import Vue from "vue";
 export default Vue.extend({
   name: "CheckoutForm",
@@ -14,7 +20,7 @@ export default Vue.extend({
     return {};
   },
   methods: {
-    submitForm(e: SubmitEvent) {
+    submitForm(e: Event) {
       e.preventDefault();
       console.log(e);
     },

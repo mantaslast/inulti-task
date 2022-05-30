@@ -2,14 +2,16 @@
   <div>
     <app-header />
     <section>
-      <router-link to="checkout">Checkout</router-link>
+      <router-link to="checkout">
+        Checkout
+      </router-link>
       <router-view />
     </section>
     <app-footer />
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
 import Vue from "vue";
 import AppFooter from "./components/Layout/AppFooter.vue";
 import AppHeader from "./components/Layout/AppHeader.vue";
