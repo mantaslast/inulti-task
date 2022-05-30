@@ -1,6 +1,10 @@
 import Vue from "vue";
 import App from "./App.vue";
 /**
+ * Styles
+ */
+import "./assets/style/index.scss";
+/**
  * Plugins
  */
 import { connectRouter } from "./plugins/vue-router";
