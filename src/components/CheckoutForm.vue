@@ -1,0 +1,25 @@
+<template>
+  <form action="#" @submit="submitForm">
+    <input type="text" />
+    <button type="submit">Submit</button>
+  </form>
+</template>
+
+<script setup lang="ts">
+import Vue from "vue";
+export default Vue.extend({
+  name: "CheckoutForm",
+  props: {},
+  data() {
+    return {};
+  },
+  methods: {
+    submitForm(e: SubmitEvent) {
+      e.preventDefault();
+      console.log(e);
+    },
+  },
+});
+</script>
+
+<style></style>
