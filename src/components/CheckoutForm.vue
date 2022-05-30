@@ -1,5 +1,5 @@
 <template>
-  <form action="#" @submit="submitForm">
+  <form name="checkoutForm" action="#" @submit="submitForm">
     <input type="text" />
     <button type="submit">Submit</button>
   </form>

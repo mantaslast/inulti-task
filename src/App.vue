@@ -1,13 +1,22 @@
 <template>
-  <checkout-form></checkout-form>
+  <div>
+    <app-header />
+    <section>
+      <router-link to="checkout">Checkout</router-link>
+      <router-view />
+    </section>
+    <app-footer />
+  </div>
 </template>
 
 <script setup lang="ts">
 import Vue from "vue";
-import CheckoutForm from "./components/CheckoutForm.vue";
+import AppFooter from "./components/Layout/AppFooter.vue";
+import AppHeader from "./components/Layout/AppHeader.vue";
+
 export default Vue.extend({
   name: "App",
-  components: { CheckoutForm },
+  components: { AppFooter, AppHeader },
 });
 </script>
 
