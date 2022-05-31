@@ -1,13 +1,20 @@
 import type { VueConstructor } from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 
-import CheckoutView from "../views/CheckoutView.vue";
-
 const routes: RouteConfig[] = [
+  {
+    path: "/",
+    name: "home",
+    component: () =>
+      import(/* webpackChunkName: "HomeView" */ "../views/HomeView.vue"),
+  },
   {
     path: "/checkout",
     name: "checkout",
-    component: CheckoutView,
+    component: () =>
+      import(
+        /* webpackChunkName: "CheckoutView" */ "../views/CheckoutView.vue"
+      ),
   },
 ];
 

@@ -5,8 +5,10 @@
     action="#"
     @submit="submitForm"
   >
-    <input type="text" />
-    <button type="submit">Submit</button>
+    <input type="text">
+    <button type="submit">
+      Submit
+    </button>
   </form>
 </template>
 

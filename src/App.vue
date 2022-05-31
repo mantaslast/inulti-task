@@ -1,12 +1,9 @@
 <template>
-  <div>
+  <div class="font-sans h-full flex flex-col">
     <app-header />
-    <section>
-      <router-link :to="{ name: 'checkout' }">
-        Checkout
-      </router-link>
+    <main class="py-[18px] px-[15px] sm:pt-[54px] sm:pb-[32.5px]">
       <router-view />
-    </section>
+    </main>
     <app-footer />
   </div>
 </template>
