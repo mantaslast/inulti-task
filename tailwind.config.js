@@ -19,16 +19,32 @@ module.exports = {
      */
     colors: {
       "bg-primary": "#e5e7eb",
-      "bg-secondary": "#f2f2f2",
-      "bg-tertiary": "#e2e2e2",
-      white: "#fff",
+      white: {
+        DEFAULT: "#fff",
+        secondary: "#f2f2f2",
+        tertiary: "#e2e2e2",
+      },
+      black: "#000",
       gray: {
         900: "#2E2E2E",
         800: "#27272A",
         500: "#71717A",
         400: "#8C8C8F",
+        300: "#D4D4D8",
       },
       cta: "#22C55E",
+    },
+    /**
+     * BORDERS
+     */
+    borderWidth: {
+      DEFAULT: "1px",
+      sm: "1.15px",
+    },
+    borderRadius: {
+      sm: "2px",
+      md: "4px",
+      lg: "4.59px",
     },
   },
   plugins: [],

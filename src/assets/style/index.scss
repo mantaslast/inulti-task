@@ -3,3 +3,13 @@
 @tailwind utilities;
 
 @import "./1-global/main";
+
+.input {
+  &--zip {
+    background-image: url("../images/pin.svg");
+    background-repeat: no-repeat;
+    background-size: auto 50%;
+    background-repeat: no-repeat;
+    background-position: left 5px center;
+  }
+}

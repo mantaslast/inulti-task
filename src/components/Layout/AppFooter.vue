@@ -13,7 +13,7 @@
         </ul>
       </nav>
       <p class="text-xs">
-        &copy; 2021 All Rights Reserved.
+        &copy;2021 All Rights Reserved.
       </p>
     </div>
   </footer>
