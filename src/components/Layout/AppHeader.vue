@@ -7,7 +7,7 @@
         class="w-[144px] hidden sm:block"
         src="../../assets/images/logo.svg"
         alt="Logo"
-      />
+      >
     </router-link>
   </header>
 </template>
