@@ -1,5 +1,9 @@
 <template>
-  <form name="checkoutForm" action="#" @submit="submitForm">
+  <form
+    name="checkoutForm"
+    action="#"
+    @submit="submitForm"
+  >
     <text-input
       class="pb-[15px] sm:pb-[20px]"
       :label="'Full Name'"
@@ -23,7 +27,10 @@
       :format-options="{ numericOnly: true, blocks: [5] }"
     />
 
-    <date-input class="pb-[15px] sm:pb-[20px]" :label="'Birth date'" />
+    <date-input
+      class="pb-[15px] sm:pb-[20px]"
+      :label="'Birth date'"
+    />
 
     <radio-input
       class="pb-[15px] sm:pb-[20px]"
