@@ -111,6 +111,9 @@ const checkoutData = {
   zipCode: "",
   birthDate: "",
   gender: "Female",
+  /**
+   * Neccessary? (?)
+   */
   cardHolderName: "",
   cardNumber: "",
   expirationDate: "",

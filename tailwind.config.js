@@ -6,6 +6,7 @@ module.exports = {
      */
     fontFamily: {
       sans: ['"Helvetica Neue"'],
+      'open-sans': ['open-sans']
     },
     fontSize: {
       xl: ["20px", "24px"],

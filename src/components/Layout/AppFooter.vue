@@ -1,6 +1,6 @@
 <template functional>
   <footer
-    class="w-full font-['Open_Sans'] text-gray-400 pb-[19px] sm:pb-[54px] mt-auto"
+    class="w-full font-open-sans text-gray-400 pb-[19px] sm:pb-[54px] mt-auto"
   >
     <div class="flex flex-col items-center mx-auto max-w-md">
       <nav class="w-full pb-5">
