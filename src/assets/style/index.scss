@@ -12,4 +12,28 @@
     background-repeat: no-repeat;
     background-position: left 5px center;
   }
+  &--date {
+    background-image: url("../images/arrows.svg");
+    background-repeat: no-repeat;
+    background-size: auto 35%;
+    background-repeat: no-repeat;
+    background-position: right 5px center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: "";
+  }
+  &--radio {
+    &.active {
+      background: #2888e0;
+      color: #fff;
+    }
+  }
+  &--sensitive {
+    background-image: url("../images/lock.svg");
+    background-repeat: no-repeat;
+    background-size: auto 35%;
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+  }
 }
