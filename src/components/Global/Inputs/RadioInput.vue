@@ -3,8 +3,7 @@
     <label
       class="inline-block text-md font-bold text-gray-800 pb-[3.81px] sm:pb-[5px]"
       :class="labelClass"
-      >{{ label }}</label
-    >
+    >{{ label }}</label>
     <div class="flex">
       <template v-for="(option, key) in options">
         <label
@@ -20,7 +19,8 @@
             type="radio"
             v-model="selected"
             :value="option.value"
-          />
+            @change="updateValue($event)"
+          >
           <span class="-translate-x-[13px]">{{ option.label }}</span>
         </label>
       </template>
@@ -31,7 +31,14 @@
 <script>
 export default {
   name: "RadioInput",
+  model: {
+    event: 'change',
+  },
   props: {
+    value: {
+      type: String,
+      default: ''
+    },
     options: {
       type: Array,
       default: () => [],
@@ -65,6 +72,23 @@ export default {
       selected: "",
     };
   },
+  /**
+   * Watch in case selected value is changed programatically by the parent component
+   */
+  watch: {
+    value: {
+      handler(newVal) {
+        this.selected = newVal
+      },
+      immediate: true,
+    }
+  },
+  methods: {
+    updateValue(e) {
+      this.selected = e.target.value
+      this.$emit('change', e.target.value)
+    }
+  }
 };
 </script>
 

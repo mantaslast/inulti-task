@@ -4,22 +4,31 @@
       class="inline-block text-md font-bold text-gray-800 pb-[3.81px] sm:pb-[5px]"
       :class="labelClass"
       :for="name"
-      >{{ label }}</label
-    >
+    >{{ label }}</label>
     <input
-      class="w-full h-[40px] sm:h-[45px] rounded-lg px-1 text-gray-500 border-sm border-gray-300"
+      ref="inputEl"
+      class="input w-full h-[40px] sm:h-[45px] rounded-lg px-1 text-gray-500 border-sm border-gray-300"
       :class="inputClass"
-      type="text"
       :name="name"
+      :value="value"
       :placeholder="placeholder"
-    />
+      @input="updateValue($event)"
+      v-bind="$attrs"
+      v-cleave="formatOptions"
+    >
   </fieldset>
 </template>
 
 <script>
+import cleave from '../../../plugins/directives/cleave-directive'
 export default {
   name: "TextInput",
+  directives: {cleave},
   props: {
+    value: {
+      type: String,
+      default: ''
+    },
     label: {
       type: String,
       required: true,
@@ -41,6 +50,17 @@ export default {
     placeholder: {
       type: String,
       default: "",
+    },
+    formatOptions: {
+      type: Object,
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      default: (() => {return {}})
+    }
+  },
+  methods: {
+    updateValue(e) {
+      const emitValue = this.formatterFn ? this.formatterFn(e.target.value) : e.target.value
+      this.$emit("input", emitValue);
     },
   },
 };

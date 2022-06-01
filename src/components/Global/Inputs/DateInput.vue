@@ -4,8 +4,7 @@
     <label
       class="inline-block text-md font-bold text-gray-800 pb-[3.81px] sm:pb-[5px]"
       :class="labelClass"
-      >{{ label }}</label
-    >
+    >{{ label }}</label>
 
     <div class="flex">
       <select
@@ -14,7 +13,12 @@
       >
         <template v-for="(month, key) in months">
           {{ key }}
-          <option :key="key" :value="key">{{ month }}</option>
+          <option
+            :key="key"
+            :value="key"
+          >
+            {{ month }}
+          </option>
         </template>
       </select>
 
@@ -22,19 +26,41 @@
         :disabled="month === '0'"
         class="input--date h-[40px] sm:h-[45px] rounded-lg pr-1 pl-2 text-gray-500 border-sm border-gray-300 min-w-0 basis-[30%] mr-[5px]"
       >
-        <option selected value="0">Day</option>
-        <option value="saab">Saab</option>
-        <option value="mercedes">Mercedes</option>
-        <option value="audi">Audi</option>
+        <option
+          selected
+          value="0"
+        >
+          Day
+        </option>
+        <option value="saab">
+          Saab
+        </option>
+        <option value="mercedes">
+          Mercedes
+        </option>
+        <option value="audi">
+          Audi
+        </option>
       </select>
 
       <select
         class="input--date h-[40px] sm:h-[45px] rounded-lg pr-1 pl-2 text-gray-500 border-sm border-gray-300 min-w-0 basis-[30%]"
       >
-        <option selected value="0">Year</option>
-        <option value="saab">Saab</option>
-        <option value="mercedes">Mercedes</option>
-        <option value="audi">Audi</option>
+        <option
+          selected
+          value="0"
+        >
+          Year
+        </option>
+        <option value="saab">
+          Saab
+        </option>
+        <option value="mercedes">
+          Mercedes
+        </option>
+        <option value="audi">
+          Audi
+        </option>
       </select>
     </div>
   </div>

@@ -27,3 +27,26 @@ export async function getUserZip(): Promise<string | undefined> {
     console.error(error);
   }
 }
+
+/**
+ * Waits for specific amount of MS before executing further
+ * @param ms 
+ * @returns 
+ */
+export async function wait(ms: number): Promise<boolean> {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve(true)
+    }, ms);
+  })
+}
+
+/**
+ * Gets number of days of specific month
+ * @param year
+ * @param month 
+ * @returns 
+ */
+export function getDaysInMonth(year:number, month: number) {
+  return new Date(year, month, 0).getDate();
+}
