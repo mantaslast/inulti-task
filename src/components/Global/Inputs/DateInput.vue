@@ -4,8 +4,7 @@
     <label
       class="inline-block text-md font-bold text-gray-800 pb-[3.81px] sm:pb-[5px]"
       :class="labelClass"
-      >{{ label }}</label
-    >
+    >{{ label }}</label>
 
     <div class="flex">
       <select
@@ -13,9 +12,17 @@
         :disabled="year === ''"
         class="input--date h-[40px] sm:h-[45px] rounded-lg pr-1 pl-2 text-gray-500 border-sm border-gray-300 min-w-0 basis-[40%] mr-[5px]"
       >
-        <option selected value="">Month</option>
+        <option
+          selected
+          value=""
+        >
+          Month
+        </option>
         <template v-for="(month, key) in months">
-          <option :key="'month-' + key" :value="key">
+          <option
+            :key="'month-' + key"
+            :value="key"
+          >
             {{ month }}
           </option>
         </template>
@@ -26,10 +33,18 @@
         :disabled="month === ''"
         class="input--date h-[40px] sm:h-[45px] rounded-lg pr-1 pl-2 text-gray-500 border-sm border-gray-300 min-w-0 basis-[30%] mr-[5px]"
       >
-        <option selected value="">Day</option>
+        <option
+          selected
+          value=""
+        >
+          Day
+        </option>
         <template v-for="(day, key) in days">
           {{ key }}
-          <option :key="'day-' + key" :value="day">
+          <option
+            :key="'day-' + key"
+            :value="day"
+          >
             {{ day }}
           </option>
         </template>
@@ -39,10 +54,18 @@
         v-model="year"
         class="input--date h-[40px] sm:h-[45px] rounded-lg pr-1 pl-2 text-gray-500 border-sm border-gray-300 min-w-0 basis-[30%]"
       >
-        <option selected value="">Year</option>
+        <option
+          selected
+          value=""
+        >
+          Year
+        </option>
         <template v-for="(year, key) in years">
           {{ key }}
-          <option :key="'year-' + key" :value="year">
+          <option
+            :key="'year-' + key"
+            :value="year"
+          >
             {{ year }}
           </option>
         </template>
@@ -50,7 +73,10 @@
     </div>
     <div class="errors__list flex flex-col">
       <template v-for="(error, key) in errors">
-        <span :key="key" class="text-xs text-error">{{ error.$message }}</span>
+        <span
+          :key="key"
+          class="text-xs text-error"
+        >{{ error.$message }}</span>
       </template>
     </div>
   </div>

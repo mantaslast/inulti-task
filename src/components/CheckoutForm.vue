@@ -1,5 +1,9 @@
 <template>
-  <form name="checkoutForm" action="#" @submit.prevent="submitForm">
+  <form
+    name="checkoutForm"
+    action="#"
+    @submit.prevent="submitForm"
+  >
     <text-input
       class="pb-[15px] sm:pb-[20px]"
       :label="'Full Name'"

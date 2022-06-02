@@ -2,7 +2,10 @@
   <section
     class="max-w-[443px] mx-auto bg-white rounded-lg border-solid border border-white-secondary p-[21px] sm:px-[57.5px] sm:pt-[29.5px] sm:pb-[39.5px]"
   >
-    <div v-if="success" class="text-cta border border-solid border-cta p-[20px] rounded-md mb-6 text-center">
+    <div
+      v-if="success"
+      class="text-cta border border-solid border-cta p-[20px] rounded-md mb-6 text-center"
+    >
       Your request has been submitted successfully
     </div>
     <h2
@@ -10,7 +13,7 @@
     >
       Get your Car Insurance for $9.99
     </h2>
-    <checkout-form @success="onSuccess"/>
+    <checkout-form @success="onSuccess" />
   </section>
 </template>
 
