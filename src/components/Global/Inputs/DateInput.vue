@@ -82,7 +82,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from "vue";
 import { getDaysInMonth, range } from "../../../utils/helpers";
 
@@ -175,7 +175,7 @@ export default Vue.extend({
     },
   },
   computed: {
-    dateInputValue(): string {
+    dateInputValue() {
       let { year, month, day } = this;
       month = month + 1;
       if (!day || !month || !year) return "";
@@ -186,7 +186,7 @@ export default Vue.extend({
     /**
      * Days might depend on year and month picked
      */
-    days(): Array<number> {
+    days() {
       const year = parseInt(this.year);
       const month = parseInt(this.month) + 1;
       if (isNaN(year) || isNaN(month)) return [];

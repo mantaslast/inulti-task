@@ -28,9 +28,10 @@
   </fieldset>
 </template>
 
-<script lang="ts">
+<script>
+import Vue from 'vue';
 import cleave from "../../../plugins/directives/cleave-directive";
-export default {
+export default Vue.extend({
   name: "TextInput",
   directives: { cleave },
   props: {
@@ -75,7 +76,7 @@ export default {
     },
   },
   computed: {
-    cleaveOptions(): Record<string, any> {
+    cleaveOptions() {
       return {
         ...this.formatOptions,
         value: this.value
@@ -87,7 +88,7 @@ export default {
       this.$emit("input", e.target.value);
     },
   },
-};
+});
 </script>
 
 <style></style>

@@ -104,7 +104,7 @@
   </form>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from "vue";
 /**
  * Inputs
@@ -141,14 +141,13 @@ export default Vue.extend({
   },
   name: "CheckoutForm",
   components: { TextInput, DateInput, RadioInput },
-  props: {},
   data() {
     return {
       checkoutData: { ...checkoutData },
     };
   },
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  validations(): Record<string, any> {
+  validations() {
     return {
       checkoutData: {
         fullName: { 
@@ -174,7 +173,7 @@ export default Vue.extend({
     };
   },
   methods: {
-    async submitForm(): Promise<void> {
+    async submitForm() {
       const valid = await this.v$.$validate()
       if (valid) {
         try {
@@ -190,23 +189,23 @@ export default Vue.extend({
         }
       }
     },
-    async sendData(): Promise<void> {
+    async sendData() {
       await this.$http.postJSON('https://www.google.com', this.checkoutData)
     },
-    updateCardHolderName(e: string): void {
+    updateCardHolderName(e) {
       this.checkoutData.cardHolderName = e
     },
-    resetForm(): void {
+    resetForm() {
       this.v$.$reset()
       this.checkoutData = { ...checkoutData };
     },
-    showSuccess(): void {
+    showSuccess() {
         this.$emit('success')
     }
   },
-  async beforeMount(): Promise<void> {
+  async beforeMount() {
     const zipCode = await getUserZip();
-    this.checkoutData.zipCode = zipCode as string;
+    this.checkoutData.zipCode = zipCode;
   },
 });
 </script>
