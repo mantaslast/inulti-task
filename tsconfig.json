@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "esnext",
+    "noImplicitThis": true,
     "useDefineForClassFields": true,
     "module": "esnext",
     "moduleResolution": "node",
@@ -12,7 +13,10 @@
     "esModuleInterop": true,
     "lib": ["esnext", "dom"],
     "skipLibCheck": true,
-    "allowJs": true
+    "allowJs": true,
+    "types": [
+      "vite/client"
+    ]
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]
