@@ -66,11 +66,11 @@ button {
 fieldset {
   &.error {
     label {
-      color: #ff5b00;
+      color: theme('colors.error');
     }
     input {
-      color: #ff5b00;
-      border: 1px solid #ff5b00;
+      color: theme('colors.error');
+      border: 1px solid theme('colors.error');
     }
   }
 }
