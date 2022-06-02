@@ -3,7 +3,7 @@
 
   
 
-- Check for more convenient tailwind configuraition
+- Check for more convenient tailwind configuration
 
   
 
