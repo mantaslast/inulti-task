@@ -8,8 +8,8 @@
   
 
 # Configured
-
-
+    
+    NODE VERSION - v14.19.0
 
 - Typescript
 
