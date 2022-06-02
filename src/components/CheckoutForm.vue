@@ -30,6 +30,7 @@
     <date-input
       class="pb-[15px] sm:pb-[20px]"
       :label="'Birth date'"
+      v-model="checkoutData.birthDate"
     />
 
     <radio-input

@@ -50,3 +50,13 @@ export async function wait(ms: number): Promise<boolean> {
 export function getDaysInMonth(year:number, month: number) {
   return new Date(year, month, 0).getDate();
 }
+
+/**
+ * Fill array with a range of values
+ * @param start 
+ * @param end 
+ * @returns 
+ */
+export function range(start: number, end: number) {
+  return Array(end - start + 1).fill().map((_, idx) => start + idx)
+}

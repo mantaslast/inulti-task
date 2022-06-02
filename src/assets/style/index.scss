@@ -9,6 +9,12 @@
   src: url("../fonts/open-sans/OpenSans-Regular.ttf")
 }
 
+input, select {
+  &[disabled] {
+    opacity: .2;
+  }
+}
+
 .input {
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
