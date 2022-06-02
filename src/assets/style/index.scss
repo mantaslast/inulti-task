@@ -3,3 +3,74 @@
 @tailwind utilities;
 
 @import "./1-global/main";
+
+@font-face {
+  font-family: "open-sans";
+  src: url("../fonts/open-sans/OpenSans-Regular.ttf");
+}
+
+input,
+select,
+button {
+  &[disabled] {
+    opacity: 0.2;
+  }
+}
+
+.input {
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  }
+
+  &[type="number"] {
+    -moz-appearance: textfield; /* Firefox */
+  }
+  &--zip {
+    background-image: url("../images/pin.svg");
+    background-repeat: no-repeat;
+    background-size: auto 50%;
+    background-repeat: no-repeat;
+    background-position: left 5px center;
+  }
+  &--date {
+    background-image: url("../images/arrows.svg");
+    background-repeat: no-repeat;
+    background-size: auto 35%;
+    background-repeat: no-repeat;
+    background-position: right 5px center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: "";
+  }
+  &--radio {
+    &.active {
+      background: #2888e0;
+      color: #fff;
+      /* :) */
+      transition: background-color 0.2s ease-out;
+    }
+  }
+  &--sensitive {
+    background-image: url("../images/lock.svg");
+    background-repeat: no-repeat;
+    background-size: auto 35%;
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+  }
+}
+
+fieldset {
+  &.error {
+    label {
+      color: #ff5b00;
+    }
+    input {
+      color: #ff5b00;
+      border: 1px solid #ff5b00;
+    }
+  }
+}
