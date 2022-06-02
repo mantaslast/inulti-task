@@ -59,6 +59,6 @@ export function getDaysInMonth(year: number, month: number) {
  */
 export function range(start: number, end: number) {
   return Array(end - start + 1)
-    .fill()
+    .fill(undefined)
     .map((_, idx) => start + idx);
 }
