@@ -34,7 +34,7 @@ export async function getUserZip(): Promise<string | undefined> {
  * @returns
  */
 export async function wait(ms: number): Promise<boolean> {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       resolve(true);
     }, ms);

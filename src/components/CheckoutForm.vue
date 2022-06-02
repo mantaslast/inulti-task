@@ -147,6 +147,7 @@ export default Vue.extend({
       checkoutData: { ...checkoutData },
     };
   },
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   validations(): Record<string, any> {
     return {
       checkoutData: {
@@ -190,7 +191,7 @@ export default Vue.extend({
       }
     },
     async sendData(): Promise<void> {
-      const response = await this.$http.postJSON('https://www.google.com', this.checkoutData)
+      await this.$http.postJSON('https://www.google.com', this.checkoutData)
     },
     updateCardHolderName(e: string): void {
       this.checkoutData.cardHolderName = e

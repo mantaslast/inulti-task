@@ -18,12 +18,12 @@
         >
           Month
         </option>
-        <template v-for="(month, key) in months">
+        <template v-for="(monthItem, key) in months">
           <option
             :key="'month-' + key"
             :value="key"
           >
-            {{ month }}
+            {{ monthItem }}
           </option>
         </template>
       </select>
@@ -39,13 +39,13 @@
         >
           Day
         </option>
-        <template v-for="(day, key) in days">
+        <template v-for="(dayItem, key) in days">
           {{ key }}
           <option
             :key="'day-' + key"
-            :value="day"
+            :value="dayItem"
           >
-            {{ day }}
+            {{ dayItem }}
           </option>
         </template>
       </select>
@@ -60,13 +60,13 @@
         >
           Year
         </option>
-        <template v-for="(year, key) in years">
+        <template v-for="(yearItem, key) in years">
           {{ key }}
           <option
             :key="'year-' + key"
-            :value="year"
+            :value="yearItem"
           >
-            {{ year }}
+            {{ yearItem }}
           </option>
         </template>
       </select>
