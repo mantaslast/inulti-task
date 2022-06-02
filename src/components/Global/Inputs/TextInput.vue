@@ -1,10 +1,11 @@
 <template>
-  <fieldset>
+  <fieldset :class="{ error: errors.length }">
     <label
       class="inline-block text-md font-bold text-gray-800 pb-[3.81px] sm:pb-[5px]"
       :class="labelClass"
       :for="name"
-    >{{ label }}</label>
+      >{{ label }}</label
+    >
     <input
       ref="inputEl"
       class="input w-full h-[40px] sm:h-[45px] rounded-lg px-1 text-gray-500 border-sm border-gray-300"
@@ -13,21 +14,27 @@
       :value="value"
       :placeholder="placeholder"
       @input="updateValue($event)"
+      @keyup="updateValue($event)"
       v-bind="$attrs"
-      v-cleave="formatOptions"
-    >
+      v-cleave="cleaveOptions"
+    />
+    <div class="errors__list flex flex-col">
+      <template v-for="(error, key) in errors">
+        <span :key="key" class="text-xs text-error">{{ error.$message }}</span>
+      </template>
+    </div>
   </fieldset>
 </template>
 
-<script>
-import cleave from '../../../plugins/directives/cleave-directive'
+<script lang="ts">
+import cleave from "../../../plugins/directives/cleave-directive";
 export default {
   name: "TextInput",
-  directives: {cleave},
+  directives: { cleave },
   props: {
     value: {
       type: String,
-      default: ''
+      default: "",
     },
     label: {
       type: String,
@@ -54,13 +61,28 @@ export default {
     formatOptions: {
       type: Object,
       // eslint-disable-next-line @typescript-eslint/no-empty-function
-      default: (() => {return {}})
+      default: () => {
+        return {};
+      },
+    },
+    errors: {
+      type: Array,
+      default: () => {
+        return [];
+      },
+    },
+  },
+  computed: {
+    cleaveOptions(): Record<string, any> {
+      return {
+        ...this.formatOptions,
+        value: this.value
+      }
     }
   },
   methods: {
     updateValue(e) {
-      const emitValue = this.formatterFn ? this.formatterFn(e.target.value) : e.target.value
-      this.$emit("input", emitValue);
+      this.$emit("input", e.target.value);
     },
   },
 };

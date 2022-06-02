@@ -15,8 +15,9 @@ const cleaveDirective = {
       update: (el: IHTMLElementCleave, binding: DirectiveBinding) => {
         const event = new Event("input", { bubbles: true });
         setTimeout(function () {
-          //el.cleave && (el.value = el.cleave.properties.result || el.value)
-          el.dispatchEvent(event);
+          const newValue = binding.value.value
+          const oldValue = binding.oldValue.value
+          if (newValue !== oldValue) el.dispatchEvent(event)
         }, 100);
       },
 }

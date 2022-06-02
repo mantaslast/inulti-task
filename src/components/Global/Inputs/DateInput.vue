@@ -13,7 +13,7 @@
         :disabled="year === ''"
         class="input--date h-[40px] sm:h-[45px] rounded-lg pr-1 pl-2 text-gray-500 border-sm border-gray-300 min-w-0 basis-[40%] mr-[5px]"
       >
-      <option selected value="">Month</option>
+        <option selected value="">Month</option>
         <template v-for="(month, key) in months">
           <option :key="'month-' + key" :value="key">
             {{ month }}
@@ -48,6 +48,11 @@
         </template>
       </select>
     </div>
+    <div class="errors__list flex flex-col">
+      <template v-for="(error, key) in errors">
+        <span :key="key" class="text-xs text-error">{{ error.$message }}</span>
+      </template>
+    </div>
   </div>
 </template>
 
@@ -56,17 +61,21 @@ import Vue from "vue";
 import { getDaysInMonth, range } from "../../../utils/helpers";
 
 /**
- * I'd change the design flow of birth date inputs from 
+ * I'd change the design flow of birth date inputs from
  * month -> day -> year
  * to
- * year -> month -> day 
+ * year -> month -> day
  */
 export default Vue.extend({
   name: "DateInput",
   model: {
-    event: 'change'
+    event: "change",
   },
   props: {
+    value: {
+      type: String,
+      default: ''
+    },
     label: {
       type: String,
       required: true,
@@ -80,6 +89,12 @@ export default Vue.extend({
       type: String,
       default: "",
     },
+    errors: {
+      type: Array,
+      default: () => {
+        return [];
+      },
+    },
   },
   data() {
     return {
@@ -91,70 +106,82 @@ export default Vue.extend({
        */
       years: range(1900, new Date().getFullYear()).sort((a, b) => b - a),
       months: [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-        'July',
-        'August',
-        'September',
-        'October',
-        'November',
-        'December',
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
       ],
     };
   },
   watch: {
     year(newVal) {
       if (!newVal) {
-        this.day = ''
-        this.month = ''
+        this.day = "";
+        this.month = "";
       } else {
-        this.handleDateChange()
+        this.handleDateChange();
       }
     },
     month(newVal) {
       if (newVal !== 0 && !newVal) {
-        this.day = ''
+        this.day = "";
       } else {
-        this.handleDateChange()
+        this.handleDateChange();
+      }
+    },
+    value(newVal) {
+      if (!newVal) {
+        this.day = "";
+        this.month = "";
+        this.year = ""
       }
     },
     dateInputValue(newVal) {
-      this.$emit('change', newVal)
-    }
+      this.$emit("change", newVal);
+    },
   },
   computed: {
     dateInputValue(): string {
-      let {year, month, day} = this
-      month = month + 1
-      if (!day || !month || !year) return ''
-      return `${year}-${parseInt(month) > 9 ? month : '0' + month}-${parseInt(day) > 9 ? day : '0' + day}`
+      let { year, month, day } = this;
+      month = month + 1;
+      if (!day || !month || !year) return "";
+      return `${year}-${parseInt(month) > 9 ? month : "0" + month}-${
+        parseInt(day) > 9 ? day : "0" + day
+      }`;
     },
     /**
      * Days might depend on year and month picked
      */
     days(): Array<number> {
-      const year = parseInt(this.year)
-      const month = parseInt(this.month) + 1
-      if (isNaN(year) || isNaN(month)) return []
-      const daysInMonth = getDaysInMonth(parseInt(this.year), (parseInt(this.month) + 1))
-      return range(1, daysInMonth)
-    }
+      const year = parseInt(this.year);
+      const month = parseInt(this.month) + 1;
+      if (isNaN(year) || isNaN(month)) return [];
+      const daysInMonth = getDaysInMonth(
+        parseInt(this.year),
+        parseInt(this.month) + 1
+      );
+      return range(1, daysInMonth);
+    },
   },
   methods: {
     /**
      * When user changes month or year, the amount of days for that month/year might change as well.
      */
     handleDateChange() {
-      if (this.days.length === 0 || !this.day) return
-      if (this.days[this.days.length - 1] < parseInt(this.day) ) {
-          this.day = ''
+      if (this.days.length === 0 || !this.day) return;
+      if (this.days[this.days.length - 1] < parseInt(this.day)) {
+        this.day = "";
       }
-    }
-  }
+    },
+  },
 });
 </script>
 

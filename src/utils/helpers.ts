@@ -30,33 +30,35 @@ export async function getUserZip(): Promise<string | undefined> {
 
 /**
  * Waits for specific amount of MS before executing further
- * @param ms 
- * @returns 
+ * @param ms
+ * @returns
  */
 export async function wait(ms: number): Promise<boolean> {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-        resolve(true)
+      resolve(true);
     }, ms);
-  })
+  });
 }
 
 /**
  * Gets number of days of specific month
  * @param year
- * @param month 
- * @returns 
+ * @param month
+ * @returns
  */
-export function getDaysInMonth(year:number, month: number) {
+export function getDaysInMonth(year: number, month: number) {
   return new Date(year, month, 0).getDate();
 }
 
 /**
  * Fill array with a range of values
- * @param start 
- * @param end 
- * @returns 
+ * @param start
+ * @param end
+ * @returns
  */
 export function range(start: number, end: number) {
-  return Array(end - start + 1).fill().map((_, idx) => start + idx)
+  return Array(end - start + 1)
+    .fill()
+    .map((_, idx) => start + idx);
 }

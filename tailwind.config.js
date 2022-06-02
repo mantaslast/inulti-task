@@ -34,6 +34,7 @@ module.exports = {
         300: "#D4D4D8",
       },
       cta: "#22C55E",
+      error: "#FF5B00"
     },
     /**
      * BORDERS
